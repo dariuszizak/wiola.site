@@ -34,9 +34,20 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum hendrerit risus sed tristique. Nam lacus diam, tincidunt ac maximus nec, finibus eget quam. Etiam auctor, est imperdiet feugiat blandit, magna arcu condimentum quam, eu eleifend nibh ante a ipsum. Donec bibendum ex at neque mollis, eu mollis risus tristique. Fusce ultrices lacus tempus orci elementum auctor sed nec quam. Etiam viverra lobortis purus, in porta tellus commodo quis. Aenean et pharetra lectus. Quisque non dictum mi, sit amet rhoncus justo. Sed et ipsum nec arcu ullamcorper mattis vitae et mauris. Vivamus lacinia mi eu mauris rhoncus, sed ullamcorper arcu consectetur. Nulla sagittis suscipit commodo.
           Quisque sollicitudin risus nec imperdiet rutrum. Nulla congue tellus non odio scelerisque, consequat elementum elit suscipit. Mauris bibendum quam libero, at tempor mauris aliquam sed. Mauris ac erat at libero posuere semper. Nulla enim tortor, lobortis et urna vel, mollis ullamcorper justo. Suspendisse in blandit neque. In in sapien iaculis, suscipit nulla interdum, consectetur ligula.
         </p>
+        <div class="w3-content w3-display-container" style="max-width:1100px;">
+          <div class="w3-center w3-section w3-large w3-display-top" width="100%;">
+            <div class="w3-left w3-padding-left w3-hover-text-pink" onclick="plusDivs(-1)">&#10094;</div>
+            <div class="w3-right w3-padding-right w3-hover-text-pink" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-pink" onclick="currentDiv(1)">1</span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-pink" onclick="currentDiv(2)">2</span>
+          </div>
+          <img class="mySlides" src="http://digital-photography-school.com/wp-content/uploads/flickr/5661878892_15fba42846_o.jpg" alt="M" width="100%;" />
+          <img class="mySlides" src="http://miriadna.com/desctopwalls/images/max/Landscape-with-calm-river.jpg" alt="owls" width="100%;" />
+        </div>
       </section>
     </section>
 <!--JavaScript Start-->
+  <!--Navigation open/close-->
   <script>
   function w3_open() {
     document.getElementById("SideNav").style.display = "block";
@@ -44,6 +55,35 @@
   function w3_close() {
     document.getElementById("SideNav").style.display = "none";
   }
+  </script>
+  <!--Slideshow-->
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+         dots[i].className = dots[i].className.replace(" w3-white", "");
+      }
+      x[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " w3-white";
+    }
   </script>
 <!--JavaScript End-->
   </body>
